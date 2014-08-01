@@ -1,0 +1,24 @@
+<% provide(:title, 'JOBS') %>
+<h1>JOBS</h1>
+<div class="panel panel-default">
+  <!-- Default panel contents -->
+  <div class="panel-heading">Here is a listing of the jobs you have applied for:</div>
+
+  <!-- Table -->
+  <table class="table">
+    <th>Title</th>
+    <th>Company</th>
+    <th>Industry</th>
+    <th>Date Applied</th>
+    <th>In Consideration?</th>
+    <% @jobs.each do |j| %>
+      <tr>
+        <td><%= j.title %></td>
+        <td><%= j.company %></td>
+        <td><%= j.industry %></td>
+        <td><%= j.date_applied.strftime('%a %d %b %Y') %></td>
+        <td><%= j.in_consideration %></td>
+      </tr>
+    <% end %><br>
+  </table>
+</div>
