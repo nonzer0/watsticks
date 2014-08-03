@@ -1,7 +1,10 @@
 Watsticks::Application.routes.draw do
+  # get "users/new"
   resources :jobs
+  resources :users
 
   root "welcome#index"
+  match '/signup',  to: 'users#new', via: 'get'
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 

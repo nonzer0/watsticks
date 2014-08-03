@@ -19,6 +19,7 @@ gem 'sass-rails', '~> 4.0.2'
 gem 'bootstrap-sass'
 gem 'sprockets'
 gem 'haml-rails'
+gem 'autoprefixer-rails'
 
 # Use Uglifier as compressor for JavaScript assets
 gem 'uglifier', '>= 1.3.0'
@@ -34,6 +35,8 @@ gem 'turbolinks'
 
 # Build JSON APIs with ease. Read more: https://github.com/rails/jbuilder
 gem 'jbuilder', '~> 1.2'
+
+gem 'devise'
 
 group :development, :test do
   gem 'rspec-rails', '~> 3.0.0'
@@ -56,6 +59,7 @@ end
 
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
+gem 'bcrypt'
 
 # Use unicorn as the app server
 # gem 'unicorn'

@@ -1,4 +1,16 @@
+@import "bootstrap-sprockets";
 @import "bootstrap";
+
+/* mixins, variables, etc. */
+
+$grayMediumLight: #F1F1F1;
+$grayLighter: #eee;
+
+@mixin box_sizing {
+  -moz-box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+}
 
 /* universal */
 
@@ -20,10 +32,9 @@ textarea {
 
 .center {
   text-align: center;
-}
-
-.center h1 {
-  margin-bottom: 10px;
+  h1 {
+    margin-bottom: 10px;
+  }
 }
 
 /* typography */
@@ -69,11 +80,40 @@ p {
   padding-top: 9px;
   font-weight: bold;
   line-height: 1;
+  &:hover {
+    color: #fff;
+    text-decoration: none;    
+  }
 }
 
-#logo:hover {
-  color: #fff;
-  text-decoration: none;
+/* sidebar */
+
+aside {
+  section {
+    padding: 10px 0;
+    border-top: 1px solid $grayLighter;
+    &:first-child {
+      border: 0;
+      padding-top: 0;
+    }
+    span {
+      display: block;
+      margin-bottom: 3px;
+      line-height: 1;
+    }
+    h1 {
+      font-size: 2em;
+      text-align: left;
+      letter-spacing: -1px;
+      margin-bottom: 3px;
+      margin-top: 0px;
+    }
+  }
+}
+
+.gravatar {
+  float: left;
+  margin-right: 8px;
 }
 
 /* footer */
@@ -83,26 +123,61 @@ footer {
   padding-top: 5px;
   border-top: 1px solid #eaeaea;
   color: #999;
+  a {
+    color: #555;
+    &:hover {
+      color: #222;
+    }
+  }
+  small {
+    float: left;
+  }
+  ul {
+    float: right;
+    list-style: none;
+    li {
+      float: left;
+      margin-left: 10px;
+    }
+  }
 }
 
-footer a {
-  color: #555;
+/* forms */
+
+input, textarea, select, .uneditable-input {
+  border: 1px solid #bbb;
+  width: 100%;
+  margin-bottom: 15px;
+  @include box_sizing;
 }
 
-footer a:hover {
-  color: #222;
+input {
+  height: auto !important;
 }
 
-footer small {
+.row {
+  width: 400px;
+  margin: auto;
+}
+
+#error_explanation {
+  color: #f00;
+  ul {
+    margin: 0 0 18px 0;
+  }
+}
+
+.field_with_errors {
+  @extend .form-group;
+  @extend .has-error;
+}
+
+/* miscellaneous */
+
+.debug_dump {
+  clear: both;
   float: left;
-}
-
-footer ul {
-  float: right;
-  list-style: none;
-}
-
-footer ul li {
-  float: left;
-  margin-left: 10px;
+  width: 100%;
+  margin-top: 45px;
+  @include box_sizing;
 }
