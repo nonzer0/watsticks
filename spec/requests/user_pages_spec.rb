@@ -21,19 +21,35 @@ describe "User pages" do
   		it "should not create a user" do
   			expect { click_button submit }.not_to change(User, :count)
   		end
+
+  		describe "after submit" do
+  			before { click_button submit }
+
+  			it { should have_title('Sign up') }
+  			it { should have_content('error') }
+  		end
   	end
 
   	describe "valid information" do
   		before do
-  			fill_in "Name",         with: "Invalid User"
-        fill_in "Email",        with: "bad@user.net"
-        fill_in "Password",     with: "invalid"
-        fill_in "Password confirmation", with: "invalid"
+  			fill_in "Name",         with: "Valid User"
+        fill_in "Email",        with: "new@user.net"
+        fill_in "Password",     with: "password"
+        fill_in "Password confirmation", with: "password"
   		end
 
   		it "should create user" do
   			expect { click_button submit }.to change(User, :count).by 1
-  		end 
+  		end
+
+  		describe "after saving user" do
+  			before { click_button submit }
+  			let(:user) { User.find_by(email: "new@user.net") }
+
+  			it { should have_content user.name }
+  			it { should have_selector('div.alert.alert-success', text: "Account Created!")}
+        it { should have_link('Sign out') }
+  		end
   	end
   end
 
