@@ -8,7 +8,11 @@ class UsersController < ApplicationController
   end
 
   def new
-  	@user = User.new
+    if signed_out?
+      @user = User.new
+    else
+      redirect_to root_url
+    end
   end
 
   def show
@@ -16,14 +20,14 @@ class UsersController < ApplicationController
   end
 
   def create
-  	@user = User.new(user_params)
-  	if @user.save
+    @user = User.new(user_params)
+    if @user.save
       sign_in(@user)
-  		flash[:success] = "Account Created!"
-  		redirect_to @user
-  	else
-  		render 'new'
-  	end
+      flash[:success] = "Account Created!"
+      redirect_to @user
+    else
+      render 'new'
+    end
   end
 
   def edit

@@ -40,6 +40,11 @@ describe "Authentication" do
         before { click_link "Sign out" }
         it { should have_link("Sign in") }
       end
+
+      describe "attempting to submit 'new'", type: :request do
+        before { visit new_user_path }
+        it { should have_content('Welcome to Watsticks') }
+      end
     end
   end
 
