@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140807182532) do
+ActiveRecord::Schema.define(version: 20140808235933) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -21,10 +21,13 @@ ActiveRecord::Schema.define(version: 20140807182532) do
     t.string   "company"
     t.string   "industry"
     t.date     "date_applied"
-    t.boolean  "in_consideration"
+    t.boolean  "in_consideration", default: true
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.integer  "user_id"
   end
+
+  add_index "jobs", ["user_id", "created_at"], name: "index_jobs_on_user_id_and_created_at", using: :btree
 
   create_table "users", force: true do |t|
     t.string   "name"

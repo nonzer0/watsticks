@@ -4,6 +4,5 @@
   <h2>
   a place to keep track of all your job opportunities.  Make it easier to see watsticks.
   </h2>
-
-  <%= link_to "Sign up now!", signup_path, class: "btn btn-large btn-primary" %>
+  <%= link_to "Sign up now!", signup_path, class: "btn btn-large btn-primary" if signed_out? %>
 </div>

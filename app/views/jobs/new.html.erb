@@ -1,17 +1,21 @@
-<%= form_for :job, url: jobs_path do |f| %>
-  <p>
-    <%= f.label :title %><br>
-    <%= f.text_field :title %>
-  </p>
-    <%= f.label :company %><br>
-    <%= f.text_field :company %>
-  <p>
-    <%= f.label :industry %><br>
-    <%= f.select :industry, [['Aerospace', 1], ['Defense', 2]] %>
-  </p>
-    <%= f.label :date_applied, "Date Applied" %><br>
-    <%= f.date_field :date_applied %><br>
-  <p>
-    <%= f.submit %>
-  </p>
-<% end %>
+<div class="row">
+  <div class="form-group">
+    <%= form_for :job, url: jobs_path do |f| %>
+      <p>
+        <%= f.label :title %><br>
+        <%= f.text_field :title %>
+      </p>
+        <%= f.label :company %><br>
+        <%= f.text_field :company %>
+      <p>
+        <%= f.label :industry %><br>
+        <%= f.select :industry, [['Aerospace', 1], ['Defense', 2]] %>
+      </p>
+        <%= f.label :date_applied, "Date Applied" %><br>
+        <%= f.date_field :date_applied %><br>
+      <p>
+        <%= f.submit %>
+      </p>
+    <% end %>
+  </div>
+</div>

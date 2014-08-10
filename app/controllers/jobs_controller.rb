@@ -1,13 +1,18 @@
 class JobsController < ApplicationController
+  before_action :signed_in_user
+
   def new
     @job = Job.new
   end
 
   def create
-    @job = Job.new(jobs_params)
-
-    @job.save
-    redirect_to @job
+    @job = current_user.jobs.build(job_params)
+    if @job.save
+      flash[:success] = "job saved"
+      redirect_to @job
+    else
+      flash[:alert]
+    end
   end
 
   def show
@@ -15,11 +20,11 @@ class JobsController < ApplicationController
   end
 
   def index
-    @jobs = Job.all
+    @jobs = Job.where(user_id: current_user.id)
   end
 
   private
-    def jobs_params
+    def job_params
       params.require(:job).permit(:title, :company, :industry, :date_applied)
     end
 end

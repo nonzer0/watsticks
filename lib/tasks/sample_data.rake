@@ -15,6 +15,19 @@ namespace :db do
                    email: email,
                    password: password,
                    password_confirmation: password)
+
+    end
+
+    users = User.all(limit: 7)
+    10.times do
+      title = Faker::Hacker.noun
+      company = Faker::Company.name
+      industry = rand(1..2)
+      date_applied = Date.today
+      users.each { |user| user.jobs.create!(title: title,
+                                            company: company,
+                                            industry: industry,
+                                            date_applied: date_applied) }
     end
   end
 end
