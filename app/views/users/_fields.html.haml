@@ -1,13 +1,13 @@
 = render 'shared/error_messages'
 
 = f.label :name
-= f.text_field :name
+= f.text_field :name, placeholder: "Enter Name"
 
 = f.label :email
-= f.text_field :email
+= f.text_field :email, placeholder: "Enter Email"
 
 = f.label :password
-= f.password_field :password
+= f.password_field :password, placeholder: "Enter Password"
 
 = f.label :password_confirmation, "Password confirmation"
-= f.password_field :password_confirmation
+= f.password_field :password_confirmation, placeholder: "Confirm password"

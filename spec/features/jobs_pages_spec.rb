@@ -48,14 +48,12 @@ describe "Jobs pages" do
       it { should have_selector('th', text: "Company") }
       it { should have_selector('th', text: "Industry") }
       it { should have_selector('th', text: "Date Applied") }
-      it { should have_selector('th', text: "In Consideration?") }
 
        it { should have_content(job1.title) }
        it { should have_content(job1.title) }
        it { should have_content(job1.company) }
        it { should have_content(job1.industry) }
        it { should have_content(job1.date_applied.strftime('%a %d %b %Y')) }
-       it { should have_content(job1.in_consideration) }
     end
   end
 end

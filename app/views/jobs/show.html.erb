@@ -18,3 +18,6 @@
   Still in Consideration?
   <%= @job.in_consideration %>
 </p>
+<div class="delete_job">
+    <%= link_to "Delete job", job_path(@job), method: :delete, class:"btn btn-large btn-danger"%>
+</div>

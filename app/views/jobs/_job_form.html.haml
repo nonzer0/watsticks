@@ -1,0 +1,11 @@
+= f.label :title
+= f.text_field :title, placeholder: "Enter Title"
+
+= f.label :company
+= f.text_field :company, placeholder: "Enter Company"
+
+= f.label :industry
+= f.select :industry, options_for_select(industry_options.sort)
+
+= f.label :date_applied, "Date Applied"
+= f.date_field :date_applied

@@ -82,7 +82,7 @@ p {
   line-height: 1;
   &:hover {
     color: #fff;
-    text-decoration: none;    
+    text-decoration: none;
   }
 }
 
@@ -112,8 +112,10 @@ aside {
 }
 
 .gravatar {
-  float: left;
+  /*float: left;*/
   margin-right: 8px;
+  margin-top: 25px;
+  vertical-align: bottom;
 }
 
 /* footer */
@@ -160,6 +162,21 @@ input {
   margin: auto;
 }
 
+tr.clickable_job_row {
+  cursor: pointer;
+  &:hover {
+    background-color: yellow;
+  }
+}
+
+.glyphicon {
+  color: grey;
+  &:hover {
+    text-decoration: none;
+    color: grey;
+  }
+}
+
 #error_explanation {
   color: #f00;
   ul {
@@ -194,5 +211,14 @@ input {
     &:last-child {
       border-bottom: 1px solid $grayLighter;
     }
+  }
+}
+
+/* Job show page */
+button.btn-danger {
+  color: white;
+  &:hover {
+    text-decoration: none !important;
+    color: white;
   }
 }

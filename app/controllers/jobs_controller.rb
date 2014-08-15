@@ -23,6 +23,12 @@ class JobsController < ApplicationController
     @jobs = Job.where(user_id: current_user.id)
   end
 
+  def destroy
+    Job.find(params[:id]).destroy
+    flash[:success] = "Job deleted"
+    redirect_to jobs_path
+  end
+
   private
     def job_params
       params.require(:job).permit(:title, :company, :industry, :date_applied)

@@ -10,14 +10,12 @@
     <th>Company</th>
     <th>Industry</th>
     <th>Date Applied</th>
-    <th>In Consideration?</th>
     <% @jobs.each do |j| %>
-      <tr>
-        <td><%= j.title %></td>
-        <td><%= j.company %></td>
-        <td><%= j.industry %></td>
-        <td><%= j.date_applied.strftime('%a %d %b %Y') %></td>
-        <td><%= j.in_consideration %></td>
+      <tr class="clickable_job_row" data-url="<%=job_path(j)%>">
+        <td class="title"><%= j.title %></td>
+        <td class="company"><%= j.company %></td>
+        <td class="industry"><%= j.industry %></td>
+        <td class="date_applied"><%= j.date_applied.strftime('%a %d %b %Y') %></td>
       </tr>
     <% end %><br>
   </table>
