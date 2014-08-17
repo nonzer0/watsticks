@@ -70,4 +70,19 @@ describe "Job" do
     before { @job.title = "a" * 49 }
     it { should_not be_valid }
   end
+
+  describe "contact associations" do
+    let(:job) { FactoryGirl.create(:job_with_contacts) }
+
+    before { @job.save }
+
+    it "should destroy associated contacts" do
+      contacts = @job.contacts.to_a
+      @job.destroy
+      expect(contacts).not_to be_empty
+      contacts.each do |contact|
+        expect(Contact.where(id: contact.id)).to be_empty
+      end
+    end
+  end
 end

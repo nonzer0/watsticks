@@ -23,5 +23,18 @@ FactoryGirl.define do
     industry 1
     date_applied Date.today
     user
+
+    factory :job_with_contacts do
+      after(:create) do |job|
+        create(:contact, job: job)
+      end
+    end
+  end
+
+  factory :contact do
+    name         'Pierre Garcon'
+    position     'Slot Receiver'
+    email        'pierre@football.com'
+    phone_number '555-1212'
   end
 end
