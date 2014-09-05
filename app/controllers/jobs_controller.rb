@@ -11,12 +11,13 @@ class JobsController < ApplicationController
       flash[:success] = "job saved"
       redirect_to @job
     else
-      flash[:alert]
+      render 'new'
     end
   end
 
   def show
     @job = Job.find(params[:id])
+    @contact = Contact.new
   end
 
   def index

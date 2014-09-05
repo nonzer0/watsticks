@@ -1,0 +1,11 @@
+.contacts-label
+  %h4.contact-label Contacts
+
+- @job.contacts.each do |c|
+  .contact-fields
+    %p
+      %strong Name:
+      = c.name
+    %p
+      %strong Title:
+      = c.position

@@ -1,49 +1,45 @@
+<div class="list-group">
+  <a href"#" class="list-group-item active">
+    <strong>JOB PROSPECT</strong>
+  </a>
+  <a href="#" class="list-group-item">
+    <strong>Title:</strong>
+    <span class="pull-right">
+      <%= @job.title %>
+    </span>
+  </a>
+  <a href"#" class="list-group-item">
+    <strong>Company:</strong>
+    <span class="pull-right">
+      <%= @job.company %>
+    </span>
+  </a>
+  <a href"#" class="list-group-item">
+    <strong>Industry:</strong>
+    <span class="pull-right">
+      <%= @job.industry %>
+    </span>
+  </a>
+  <a href"#" class="list-group-item">
+    <strong>Date Applied:</strong>
+    <span class="pull-right">
+      <%= @job.date_applied.strftime("%B %-d, %Y") %>
+    </span>
+  </a>
+  <a href"#" class="list-group-item">
+    <strong>Still in Consideration?</strong>
+    <span class="pull-right">
+      <%= @job.in_consideration %>
+    </span>
+  </a>
+</div>
 <p>
-  <strong>Job Title:</strong>
-  <%= @job.title %>
+  <%= render "contacts/show" %>
 </p>
 <p>
-  Company:
-  <%= @job.company %>
+  <%= render "contacts/contact_form" %>
 </p>
-<p>
-  Industry:
-  <%= @job.industry %>
-</p>
-<p>
-  Date Applied:
-  <%= @job.date_applied %>
-</p>
-<p>
-  Still in Consideration?
-  <%= @job.in_consideration %>
-</p>
-<p>
-  <%= render @job.contacts %>
-</p>
-<button class="btn btn-primary btn-lg" data-toggle="modal" data-target="#myModal">
-  Launch demo modal
-</button>
-<div class="modal fade">
-  <div class="modal-dialog">
-    <div class="modal-content">
-      <div class="modal-header">
-        <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
-        <h4 class="modal-title">Modal title</h4>
-      </div>
-      <div class="modal-body">
-        <div class="add_contact">
-          <%= link_to "Add contact", new_contact_path, class: "btn btn-large btn-info" %>
-        </div>
-        <p>One fine body&hellip;</p>
-      </div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-        <button type="button" class="btn btn-primary">Save changes</button>
-      </div>
-    </div><!-- /.modal-content -->
-  </div><!-- /.modal-dialog -->
-</div><!-- /.modal -->
+
 <div class="delete_job">
   <%= link_to "Delete job", job_path(@job), method: :delete, class:"btn btn-large btn-danger"%>
 </div>

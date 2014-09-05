@@ -189,6 +189,12 @@ tr.clickable_job_row {
   @extend .has-error;
 }
 
+/* lists */
+
+.list-group {
+  width: 30%;
+}
+
 /* miscellaneous */
 
 .debug_dump {

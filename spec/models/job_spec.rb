@@ -73,12 +73,17 @@ describe "Job" do
 
   describe "contact associations" do
     let(:job) { FactoryGirl.create(:job_with_contacts) }
+    let(:other_contact) { FactoryGirl.create(:contact, job: job) }
 
-    before { @job.save }
+    before do
+      job.save
+      other_contact.save
+    end
 
     it "should destroy associated contacts" do
-      contacts = @job.contacts.to_a
-      @job.destroy
+      contacts = job.contacts.to_a
+      expect(contacts.length).to eq 2
+      job.destroy
       expect(contacts).not_to be_empty
       contacts.each do |contact|
         expect(Contact.where(id: contact.id)).to be_empty
