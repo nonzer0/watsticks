@@ -3,6 +3,7 @@ require 'rails_helper'
 describe User do
   before { @user = User.new(name: "Boris Karloff",
                             email: "boris@kremlin.com",
+                            employed: false,
                             password: "password",
                             password_confirmation: "password") }
 
@@ -17,6 +18,8 @@ describe User do
   it { should respond_to(:remember_token) }
   it { should respond_to(:admin) }
   it { should respond_to(:jobs) }
+  it { should respond_to(:employed) }
+
 
   it { should be_valid }
   it { should_not be_admin }
