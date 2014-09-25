@@ -15,13 +15,32 @@ class JobsController < ApplicationController
     end
   end
 
+  def update
+    @job = Job.find(params[:id])
+    if @job.update(job_params)
+      flash[:successj] = "job updated"
+      redirect_to @job
+    else
+      render 'edit'
+    end
+  end
+
   def show
     @job = Job.find(params[:id])
     @contact = Contact.new
   end
 
+  def edit
+    @job = Job.find(params[:id])
+  end
+
   def index
     @jobs = Job.where(user_id: current_user.id)
+  end
+
+  def update_consideration
+    @job = Job.find(params[:id])
+    @job.update_attributes(:in_consideration, params[:in_consideration])
   end
 
   def destroy
@@ -32,6 +51,6 @@ class JobsController < ApplicationController
 
   private
     def job_params
-      params.require(:job).permit(:title, :company, :industry, :date_applied)
+      params.require(:job).permit(:title, :company, :industry, :date_applied, :in_consideration)
     end
 end

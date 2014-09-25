@@ -28,11 +28,30 @@ describe "Jobs pages" do
     it { should have_content('Company') }
     it { should have_content('Industry') }
     it { should have_content('Date Applied') }
+    it { should have_link('Edit') }
 
     it { should have_content(job.title) }
     it { should have_content(job.company) }
     it { should have_content(job.industry) }
-    it { should have_content(job.date_applied) }
+    it { should have_content(job.date_applied.strftime("%B %-d, %Y")) }
+
+    describe "edit page" do
+      before do
+        visit edit_job_path(job)
+      end
+
+      it { should have_content('Edit Job') }
+      it { should have_content('Title') }
+      it { should have_content('Company') }
+      it { should have_content('Industry') }
+      it { should have_content('Date Applied') }
+
+      #TODO these need to reference selector `value`
+      it { should have_selector(job.title) }
+      it { should have_selector(job.company) }
+      it { should have_selector(job.industry) }
+      it { should have_selector(job.date_applied) }
+    end
 
     describe "index page" do
       let(:user) { FactoryGirl.create(:user_with_jobs) }

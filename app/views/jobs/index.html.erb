@@ -16,6 +16,7 @@
         <td class="company"><%= j.company %></td>
         <td class="industry"><%= j.industry %></td>
         <td class="date_applied"><%= j.date_applied.strftime('%a %d %b %Y') %></td>
+        <td class="in-consideration" style="display:none"><%= j.in_consideration %></td>
       </tr>
     <% end %><br>
   </table>
@@ -23,3 +24,5 @@
 <div>
   <%= link_to "Add Job", new_job_path, class: "btn btn-large btn-primary" %>
 </div>
+<script>
+</script>

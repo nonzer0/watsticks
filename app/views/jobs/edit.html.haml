@@ -1,0 +1,8 @@
+%h1 Edit Job
+.row
+  .form-group
+    = form_for :job, url: job_path, method: :patch do |f|
+      = render 'job_form', f: f
+      = f.submit "Update job", class: "btn btn-large btn-primary"
+
+

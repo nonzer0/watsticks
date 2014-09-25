@@ -165,7 +165,7 @@ input {
 tr.clickable_job_row {
   cursor: pointer;
   &:hover {
-    background-color: yellow;
+    background-color: #d3d3d3;
   }
 }
 
@@ -227,4 +227,12 @@ button.btn-danger {
     text-decoration: none !important;
     color: white;
   }
+}
+
+/* side dashboard panel */
+.left-panel {
+  /*width: 25%;*/
+  position: fixed;
+  top: 5em;
+  left: 1em;
 }

@@ -1,9 +1,1 @@
-$(document).ready(function() {
-  return $('.contact-fields').on("ajax:success", function(e, data, status, xhr) {
-    //$('.contact-fields').append(xhr.responseText);
-    $('#myModal').modal('hide');
-  }).on("ajax:error", function(e, data, status, error) {
-    return $('.contact-fields').append('Error');
-  });
-});
-
+"<%= escape_javascript(@contact.name) %>"

@@ -5,8 +5,8 @@ class ContactsController < ApplicationController
     respond_to do |format|
       if @contact.save
         format.html { redirect_to job_path(@contact.job_id), notice: "Contact created" }
-        format.js {}
-        format.json { render json: @contact, status: :created, location: @contact }
+        format.js   { }
+        format.json { render json: @contact }
       else
         format.html { render action: "new" }
         format.json { render json: @contact.errors, status: :unprocessable_entity }

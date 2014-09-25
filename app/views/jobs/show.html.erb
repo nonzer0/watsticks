@@ -1,40 +1,45 @@
 <div class="list-group">
-  <a href"#" class="list-group-item active">
+  <div class="list-group-item active">
     <strong>JOB PROSPECT</strong>
-  </a>
-  <a href="#" class="list-group-item">
+    <span class="pull-right">
+      <%= link_to "Edit", edit_job_path(@job) %>
+    </span>
+  </div>
+  <div class="list-group-item">
     <strong>Title:</strong>
     <span class="pull-right">
       <%= @job.title %>
     </span>
-  </a>
-  <a href"#" class="list-group-item">
+  </div>
+  <div class="list-group-item">
     <strong>Company:</strong>
     <span class="pull-right">
       <%= @job.company %>
     </span>
-  </a>
-  <a href"#" class="list-group-item">
+  </div>
+  <div class="list-group-item">
     <strong>Industry:</strong>
     <span class="pull-right">
       <%= @job.industry %>
     </span>
-  </a>
-  <a href"#" class="list-group-item">
+  </div>
+  <div class="list-group-item">
     <strong>Date Applied:</strong>
     <span class="pull-right">
       <%= @job.date_applied.strftime("%B %-d, %Y") %>
     </span>
-  </a>
-  <a href"#" class="list-group-item">
-    <strong>Still in Consideration?</strong>
-    <span class="pull-right">
-      <%= @job.in_consideration %>
-    </span>
-  </a>
+  </div>
+  <div class="list-group-item" style="display:none">
+  </div>
+  <div class="list-group-item">
+    <form action="">
+      <input type="radio" name="consideration" value="in">in consideration
+      <input type="radio" name="consideration" value="out">out of consideration
+    </form>
+  </div>
 </div>
 <p>
-  <%= render "contacts/show" %>
+  <%= render partial: "contacts/show" %>
 </p>
 <p>
   <%= render "contacts/contact_form" %>
