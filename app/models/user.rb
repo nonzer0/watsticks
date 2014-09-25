@@ -8,6 +8,7 @@ class User < ActiveRecord::Base
   validates :email, presence: true,
   	                format: { with: VALID_EMAIL },
                     uniqueness: { case_sensitive: false }
+  validates_inclusion_of :employed, in: [true, false]
 
   has_secure_password
   validates :password, length: { minimum: 6 }

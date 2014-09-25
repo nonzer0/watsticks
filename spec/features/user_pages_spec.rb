@@ -8,8 +8,8 @@ describe "User pages" do
   describe "index" do
     before do
       sign_in FactoryGirl.create(:user)
-      FactoryGirl.create(:user, name: "Cheech", email: "cheech@test.com")
-      FactoryGirl.create(:user, name: "Chong", email: "chong@bong.com")
+      FactoryGirl.create(:user, name: "Cheech", email: "cheech@test.com", employed: false)
+      FactoryGirl.create(:user, name: "Chong", email: "chong@bong.com", employed: false)
       visit users_path
     end
 
@@ -78,6 +78,7 @@ describe "User pages" do
   		before do
   			fill_in "Name",         with: "Valid User"
         fill_in "Email",        with: "new@user.net"
+        check   'Employed'
         fill_in "Password",     with: "password"
         fill_in "Password confirmation", with: "password"
   		end
