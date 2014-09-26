@@ -2,5 +2,5 @@ language: ruby
 rvm:
   - "2.1.1"
 before_script:
-  - psql -c 'create database watsticktest;'
+  - psql -c 'create database watstickstest;'
 script: bundle exec rspec spec
