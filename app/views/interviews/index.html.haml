@@ -1,0 +1,19 @@
+- provide(:title, 'INTERVIEWS')
+%h1 Interviews
+%div.panel.panel-default
+  %div.panel-heading
+    Here are your upcoming interviews:
+    %table.table
+      %th
+        Company
+      %th
+        Contact
+      %th
+        Date
+      %tr
+        - @interviews.each do |i|
+          %td.company
+          %td.contact
+          %td.date 
+            = i.scheduled_on
+

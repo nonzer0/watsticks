@@ -2,6 +2,7 @@ Watsticks::Application.routes.draw do
   # get "users/new"
   resources :jobs
   resources :users
+  resources :interviews
   resources :sessions, only: [:new, :create, :destroy]
 
   root "welcome#index"

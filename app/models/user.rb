@@ -21,6 +21,11 @@ class User < ActiveRecord::Base
     Digest::SHA1.hexdigest(token.to_s)
   end
 
+  def upcoming_interviews
+    self.interviews.where("scheduled_on >= scheduled_on AND user_id = user_id",
+      scheduled_on: Date.today, user_id: self.id)
+  end
+
   private
 
     def create_remember_token
