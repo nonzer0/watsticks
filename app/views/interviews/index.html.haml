@@ -13,6 +13,7 @@
       %tr
         - @interviews.each do |i|
           %td.company
+            = i.job.company
           %td.contact
           %td.date
             = i.scheduled_on
