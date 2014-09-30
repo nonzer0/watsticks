@@ -2,7 +2,7 @@ require 'rails_helper'
 
 describe User do
   before { @user = User.new(name: "Boris Karloff",
-                            email: "boris@kremlin.com",
+                            email: "boris@kremlin.net",
                             password: "password",
                             password_confirmation: "password") }
 
