@@ -34,6 +34,8 @@ describe "Jobs pages" do
     it { should have_content(job.industry) }
     it { should have_content(job.date_applied) }
 
+    it { should have_link "Delete job" }
+
     describe "index page" do
       let(:user) { FactoryGirl.create(:user_with_jobs) }
       let(:job1) { user.jobs.first }

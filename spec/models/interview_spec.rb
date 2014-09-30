@@ -9,6 +9,11 @@ describe Interview  do
 
   it { should be_valid }
 
+  describe "when scheduled_on not present" do
+  	before { @interview.scheduled_on = " " }
+  	it { should_not be_valid }
+  end
+
   describe "Interview associations" do
   	before { job.save }
   	let!(:upcoming_interview) do

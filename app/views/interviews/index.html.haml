@@ -7,11 +7,11 @@
       %th
         Company
       %th
-        Contact
+        Main Contact
       %th
         Date
-      %tr
-        - @interviews.each do |i|
+      - @interviews.each do |i|
+        %tr
           %td.company
             = i.job.company
           %td.contact
