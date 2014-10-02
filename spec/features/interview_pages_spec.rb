@@ -12,6 +12,6 @@ describe "Interview pages" do
 		end
 
 		it { should have_title "INTERVIEWS" }
-		it { should have_content "Interviews" }
+		it { should have_content "INTERVIEWS" }
 	end
 end
