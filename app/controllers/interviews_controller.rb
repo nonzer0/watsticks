@@ -10,6 +10,10 @@ class InterviewsController < ApplicationController
 		 user_id: current_user.id, scheduled_on: Date.today)
 	end
 
+  def show
+    @interview = Interview.find(params[:id])
+  end
+
 	private
 
 		def interview_params
