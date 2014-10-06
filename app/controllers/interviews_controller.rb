@@ -6,12 +6,17 @@ class InterviewsController < ApplicationController
 	end
 
 	def index
-		@interviews = Interview.where("user_id = user_id AND scheduled_on >= scheduled_on",
-		 user_id: current_user.id, scheduled_on: Date.today)
+    @interviews = Interview.where("user_id = user_id AND scheduled_on >= scheduled_on",
+     user_id: current_user.id, scheduled_on: Date.today)
 	end
 
   def show
     @interview = Interview.find(params[:id])
+  end
+
+  def user_interviews
+    @interviews = Interview.where(user_id: params[:user_id]).to_a
+    render 'index'
   end
 
 	private

@@ -1,0 +1,25 @@
+%p
+  %strong
+    Job Title:
+  = @job.title
+%p
+  %strong
+    Company:
+  = @job.company
+%p
+  %strong
+    Industry:
+  = @job.industry
+%p
+  %strong
+    Date Applied:
+  = @job.date_applied
+%p
+  %strong
+    Still in Consideration:
+  = @job.in_consideration
+%div.delete_job
+  = link_to "Delete job", job_path(@job), method: :delete, class: "btn btn-large btn-danger"
+.content
+  - if @job.interviews.count > 0
+    = render partial: 'interview_details'
