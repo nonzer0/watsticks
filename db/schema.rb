@@ -45,7 +45,6 @@ ActiveRecord::Schema.define(version: 20140929143053) do
     t.string   "password_digest"
     t.string   "remember_token"
     t.boolean  "admin",           default: false
-    t.boolean  "employed"
   end
 
   add_index "users", ["email"], name: "index_users_on_email", unique: true, using: :btree

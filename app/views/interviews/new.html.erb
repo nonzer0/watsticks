@@ -1,0 +1,8 @@
+<div class="row">
+	<div class="form-group">
+		<%= form_for :interview, url: job_interviews_path do |f| %>
+			<%= render 'interview_form', f: f %>
+			<%= f.submit "Save interview", class: "btn btn-large btn-primary" %>
+		<% end %>
+	</div>
+</div>
