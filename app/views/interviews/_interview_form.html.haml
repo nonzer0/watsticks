@@ -1,15 +1,9 @@
-/ = f.label :date, "Date/Time:"
-/ = f.date_field :scheduled_on
-
-/ = f.label :time
-/ = f.time_field :scheduled_on
-/%div.container
+= f.label :date, "Date/Time:"
 %div.row
-	%div.col-sm-6
-		%div.form-group
-			%div.input-group.date#datetimepicker1
-				%input{ type: 'text', class: "form-control" }
-					%span{ class: "input-group-addon" } 
-						%span{ class: "glyphicon glyphicon-calendar" }
-						:javascript
-							$(function () { $('#datetimepicker1').datetimepicker(); });
+	%div.form-group
+		%div.input-group.date#interview_scheduled_on{ name: 'interview[scheduled_on]'}
+			%input{ type: 'text', class: "form-control" }
+				%span{ class: "input-group-addon" } 
+					%span{ class: "glyphicon glyphicon-calendar" }
+					:javascript
+						$(function () { $('#interview_scheduled_on').datetimepicker(); });
