@@ -22,6 +22,7 @@
   = link_to "Delete job", job_path(@job), method: :delete, class: "btn btn-large btn-danger"
 %div.add_interview
   = link_to "Add interview", new_job_interview_path(@job) #class: "btn btn-large btn-default"
+%h3 Interviews:
 .content
   - if @job.interviews.count > 0
     = render partial: 'interview_details'
