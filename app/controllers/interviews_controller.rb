@@ -10,6 +10,16 @@ class InterviewsController < ApplicationController
      user_id: current_user.id, scheduled_on: Date.today)
 	end
 
+	def create
+		@interview = Interview.new(interview_params)
+		if @interview.save
+			flash[:success] = 'interview saved!'
+			redirect_to @interview.job
+		else
+			flash[:alert]
+		end
+	end
+
   def show
     @interview = Interview.find(params[:id])
   end
@@ -22,6 +32,6 @@ class InterviewsController < ApplicationController
 	private
 
 		def interview_params
-			params.require(:interview).permit(:scheduled_on)
+			params.require(:interview).permit(:scheduled_on, :user_id, :job_id)
 		end
 end
