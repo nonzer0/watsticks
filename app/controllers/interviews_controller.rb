@@ -12,6 +12,8 @@ class InterviewsController < ApplicationController
 
 	def create
 		@interview = Interview.new(interview_params)
+    @user = current_user
+    puts "user #{@user}"
 		if @interview.save
 			flash[:success] = 'interview saved!'
 			redirect_to @interview.job
