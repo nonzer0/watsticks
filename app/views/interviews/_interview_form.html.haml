@@ -2,7 +2,7 @@
 %div.row
   %div.form-group
     %div.input-group.date#interview_scheduled_on
-      = f.datetime_field :scheduled_on
+      = f.datetime_field :scheduled_on, class: "form-control"
       %span{ class: "input-group-addon" }
         %span{ class: "glyphicon glyphicon-calendar" }
           :javascript
