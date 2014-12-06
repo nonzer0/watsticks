@@ -12,10 +12,8 @@ class InterviewsController < ApplicationController
 
   def create
     interview_time = DateTime.strptime(interview_params[:scheduled_on], '%m/%d/%Y %l:%M %p')
-    puts "TIME: #{interview_time}"
-    @interview = Interview.new(user_id: current_user.id, scheduled_on: interview_time, job_id: interview_params[:job_id])
+    @interview = Interview.new(user_id: current_user.id, scheduled_on: interview_time, job_id: params[:job_id])
     @user = current_user
-    puts "user #{@user}"
     if @interview.save
       flash[:success] = 'interview saved!'
       redirect_to @interview.job
