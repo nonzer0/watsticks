@@ -1,5 +1,6 @@
 class User < ActiveRecord::Base
   has_many :jobs, dependent: :destroy
+  has_many :interviews, through: :jobs, dependent: :destroy
 
 	before_save { email.downcase }
   before_create { create_remember_token }
@@ -18,6 +19,11 @@ class User < ActiveRecord::Base
 
   def self.digest(token)
     Digest::SHA1.hexdigest(token.to_s)
+  end
+
+  def upcoming_interviews
+    self.interviews.where("scheduled_on >= scheduled_on AND user_id = user_id",
+      scheduled_on: Date.today, user_id: self.id)
   end
 
   private

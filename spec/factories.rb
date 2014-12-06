@@ -16,7 +16,6 @@ FactoryGirl.define do
     end
   end
 
-
   factory :job do
     title   'key grip'
     company 'showcase cinemas'

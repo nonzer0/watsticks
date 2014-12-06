@@ -1,0 +1,18 @@
+%p
+  %strong
+    Company:
+  = @interview.job.company
+%p
+  %strong
+    Main Contact:
+  Replace me with something meaningful
+%p
+  %strong
+    Date:
+  = @interview.interview_date
+%p
+  %strong
+    Time:
+  = @interview.interview_time
+%div.delete_interview
+  = link_to "Delete interview", job_interview_path(@interview), method: :delete, class: "btn btn-large btn-danger"

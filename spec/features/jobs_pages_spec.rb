@@ -1,5 +1,4 @@
 require 'rails_helper'
-#require 'spec_helper'
 
 
 describe "Jobs pages" do
@@ -33,6 +32,8 @@ describe "Jobs pages" do
     it { should have_content(job.company) }
     it { should have_content(job.industry) }
     it { should have_content(job.date_applied) }
+
+    it { should have_link "Delete job" }
 
     describe "index page" do
       let(:user) { FactoryGirl.create(:user_with_jobs) }
