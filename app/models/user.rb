@@ -1,6 +1,5 @@
 class User < ActiveRecord::Base
   has_many :jobs, dependent: :destroy
-  has_many :interviews, through: :jobs, dependent: :destroy
 
 	before_save { email.downcase }
   before_create { create_remember_token }
