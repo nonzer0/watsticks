@@ -54,7 +54,7 @@ describe "Jobs pages" do
        it { should have_content(job1.title) }
        it { should have_content(job1.company) }
        it { should have_content(job1.industry) }
-       it { should have_content(job1.date_applied.strftime('%a %d %b %Y')) }
+       it { should have_content(job1.date_applied.strftime('%b %d')) }
     end
   end
 end
