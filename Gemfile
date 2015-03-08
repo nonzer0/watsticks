@@ -6,13 +6,13 @@ gem 'rails', '4.1'
 
 # Use sqlite3 as the database for Active Record
 
+gem 'pg'
+
 group :development do
-  gem 'pg'
   gem 'spring'
 end
 
 group :production do
-  gem 'pg'
   gem 'rails_12factor'
   gem 'sprockets_better_errors'
 end
