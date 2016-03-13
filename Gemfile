@@ -2,8 +2,8 @@ source 'https://rubygems.org'
 
 ruby '2.2.2'
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
-gem 'rails', '4.1.9'
-gem 'activesupport', '4.1.9'
+gem 'rails', '4.2.0'
+gem 'activesupport', '4.2.0'
 
 # Use sqlite3 as the database for Active Record
 
